@@ -12,19 +12,19 @@ import java.util.ArrayList;
  * @author lenin
  */
 public class Factura implements PorPagar{
-    private ArrayList<String> productos;
+    private ArrayList<Producto> productos;
     private String idProveedores;
 
-    public Factura(ArrayList<String> productos, String idProveedores) {
+    public Factura(ArrayList<Producto> productos, String idProveedores) {
         this.productos = productos;
         this.idProveedores = idProveedores;
     }
 
-    public ArrayList<String> getProductos() {
+    public ArrayList<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<String> productos) {
+    public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
     }
 
@@ -35,10 +35,14 @@ public class Factura implements PorPagar{
     public void setIdProveedores(String idProveedores) {
         this.idProveedores = idProveedores;
     }
-
+    
     @Override
     public double obtenerMontoPago() {
-        return 0.00;
+        double total = 0.0;
+        for(int i = 0; i < productos.size(); i++){
+            total = total + productos.get(i).getPrecioPorArticulo()* productos.get(i).getCantComprar();
+        }
+        return total;
     }
     
     @Override

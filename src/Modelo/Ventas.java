@@ -15,11 +15,11 @@ public class Ventas implements PorPagar{
     private String folio;
     private String idCliente;
     private String matricula;
-    private ArrayList<String> productos;
+    private ArrayList<Producto> productos;
     private Fecha fecha;
     private Hora hora;
 
-    public Ventas(String folio, String idCliente, String matricula, ArrayList<String> productos, Fecha fecha, Hora hora) {
+    public Ventas(String folio, String idCliente, String matricula, ArrayList<Producto> productos, Fecha fecha, Hora hora) {
         this.folio = folio;
         this.idCliente = idCliente;
         this.matricula = matricula;
@@ -52,11 +52,11 @@ public class Ventas implements PorPagar{
         this.matricula = matricula;
     }
 
-    public ArrayList<String> getProductos() {
+    public ArrayList<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<String> productos) {
+    public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
     }
 
@@ -75,10 +75,14 @@ public class Ventas implements PorPagar{
     public void setHora(Hora hora) {
         this.hora = hora;
     }
-
+    
     @Override
     public double obtenerMontoPago() {
-        return 0.00;
+        double total = 0.0;
+        for(int i = 0; i < productos.size(); i++){
+            total = total + productos.get(i).getPrecio()*productos.get(i).getCantComprar();
+        }
+        return total;
     }
     
     @Override
