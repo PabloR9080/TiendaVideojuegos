@@ -42,7 +42,6 @@ public class FrmInicio extends javax.swing.JFrame {
 
         btnClientes.setBorder(null);
         btnClientes.setContentAreaFilled(false);
-        btnClientes.setOpaque(false);
         getContentPane().add(btnClientes);
         btnClientes.setBounds(40, 170, 150, 50);
 
@@ -65,10 +64,8 @@ public class FrmInicio extends javax.swing.JFrame {
         btnVendedores.setContentAreaFilled(false);
         getContentPane().add(btnVendedores);
         btnVendedores.setBounds(280, 270, 140, 50);
-
-        lbFondo.setIcon(new javax.swing.ImageIcon("D:\\lenin\\Documents\\NetBeansProjects\\TiendaVideojuegos\\src\\Vista\\OpcionesPreview.png")); // NOI18N
         getContentPane().add(lbFondo);
-        lbFondo.setBounds(0, 0, 451, 425);
+        lbFondo.setBounds(0, 0, 0, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
